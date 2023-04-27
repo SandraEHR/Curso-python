@@ -1,19 +1,26 @@
 class MobilePhone:
     def __init__(self, manufacturer, screen_size, num_cores):
-        self.manufacturer_phone = manufacturer
-        self.screen_size_phone = screen_size
-        self.num_cores_phone = num_cores
-        self.apps_phone = apps
-        self.status_phone = False
+        self.manufacturer = manufacturer
+        self.screen_size = screen_size
+        self.num_cores = num_cores
+        self.apps = []
+        self.status = False
 
     def power_on(self):
         print('Encendido')
-        self.power_on = True
+        self.status = True
 
     def power_off(self):
         print('Apagado')
-        self.power_on = False
+        self.status = False
+
+    def install_apps(self, app):
+        self.apps.append(app)
+
+    def uninstall_apps(self, app):
+        if app in self.apps:
+            self.apps.remove(app)
 
 
-galaxy = MobilePhone('Samsung', float(6.4), int(8), ['Whatsapp', 'Instagram', 'Maps'])
-print(galaxy.manufacturer_phone, galaxy.screen_size_phone, galaxy.num_cores_phone, galaxy.apps_phone)
+galaxy = MobilePhone('Samsung', 6.4, 8)
+print(galaxy.manufacturer, galaxy.screen_size, galaxy.num_cores)
